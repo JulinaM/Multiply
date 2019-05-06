@@ -16,13 +16,13 @@ public class Main {
         }
     }
     private   static  Integer Multiply1(int result, String s , int nextIndex){
-        System.out.println("result = " + result + "  s = " + s);
         try {
             if(result == 0 || s.isEmpty() && nextIndex == 0) return 0;
-            if(nextIndex > s.length()) return result;
-            int a = Integer.parseInt(s.substring(nextIndex, nextIndex+1));
-            System.out.println("First number :" + a);
-            return  Multiply1(result * a, nextIndex + 1 > s.length() ? "1": s.substring(nextIndex+2), nextIndex+2);
+            if(nextIndex > s.length()) {
+                return result;
+            }
+            int a = Integer.parseInt(s.substring(0, 1));
+            return  Multiply1(result * a, s.substring(2), nextIndex+2);
         }
         catch (Exception e){
             e.printStackTrace();
